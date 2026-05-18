@@ -11,7 +11,6 @@ else:
 
     numero = randint(limite_inferior, limite_superior)
 
-    # Si sale par, lo cambia al siguiente impar
     if numero % 2 == 0:
         if numero + 1 <= limite_superior:
             numero_final = numero + 1
@@ -40,7 +39,6 @@ else:
             else:
                 print("El número es menor")
 
-        # Guardar intentos
         if intentos == 1:
             intento1 = numero_usuario
 
