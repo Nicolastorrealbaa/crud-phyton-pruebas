@@ -1,69 +1,68 @@
 from random import randint
 
-num1 = int(input("Ingrese limite inferior: "))
-num2 = int(input("Ingrese limite superior: "))
-numero = randint(num1, num2)
+limite_inferior = int(input("Ingrese el límite inferior: "))
+limite_superior = int(input("Ingrese el límite superior: "))
 
-if numero % 2 != 0:
-    if numero + 1 <= num2:
-        numero_final = numero + 1
-    else:
-        numero_final = numero - 1
+if limite_inferior >= limite_superior:
+    print("Error: el límite inferior debe ser menor que el límite superior")
+
 else:
-    numero_final = numero
+    print("Rango correcto")
 
-correcto = numero_final
-intento = 1
-adivino = False
-intento1 = 0
-intento2 = 0
+    numero = randint(limite_inferior, limite_superior)
 
-while intento <= 3 and adivino == False:
-
-    if intento == 1:
-        usuario = int(input("Intente adivinar: "))
-        intento1 = usuario
-
-    elif intento == 2:
-        usuario = int(input("Intente de nuevo: "))
-        intento2 = usuario
-
+    # Si sale par, lo cambia al siguiente impar
+    if numero % 2 == 0:
+        if numero + 1 <= limite_superior:
+            numero_final = numero + 1
+        else:
+            numero_final = numero - 1
     else:
-        usuario = int(input("Intente la ultima vez: "))
+        numero_final = numero
 
-    if usuario == correcto:
-        adivino = True
+    intentos = 1
+    adivino = False
 
-        if intento == 1:
-            print("Felicitaciones, adivino en el primer intento.")
+    intento1 = 0
+    intento2 = 0
 
-        elif intento == 2:
-            print("Felicitaciones, adivino en su segundo intento.")
+    while intentos <= 3 and adivino == False:
+
+        numero_usuario = int(input(f"Intento ({intentos}): "))
+
+        if numero_usuario == numero_final:
+            print("Felicitaciones, pudiste adivinar.")
+            adivino = True
 
         else:
-            print("Felicitaciones, pudiste adivinar.")
-
-    else:
-        if intento < 3:
-
-            if correcto > usuario:
-                print("El numero es mayor.")
+            if numero_usuario < numero_final:
+                print("El número es mayor")
             else:
-                print("El numero es menor.")
+                print("El número es menor")
 
-        if intento == 2:
-            distancia1 = abs(correcto - intento1)
-            distancia2 = abs(correcto - intento2)
+        # Guardar intentos
+        if intentos == 1:
+            intento1 = numero_usuario
 
-            print("te dare una pista:")
+        elif intentos == 2:
+            intento2 = numero_usuario
 
-            if distancia2 < distancia1:
-                print("El numero que buscas está más cerca de", intento2, "que de", intento1)
+            distancia1 = abs(numero_final - intento1)
+            distancia2 = abs(numero_final - intento2)
+
+            print("Te daré una pista:")
+
+            if distancia1 < distancia2:
+                print("El número está más cerca de", intento1, "que de", intento2)
+
+            elif distancia2 < distancia1:
+                print("El número está más cerca de", intento2, "que de", intento1)
+
             else:
-                print("El numero que buscas está más cerca de", intento1, "que de", intento2)
+                print("Ambos intentos estuvieron igual de cerca")
 
-        if intento == 3:
-            print("Perdiste.")
-            print("El numero era:", correcto)
+        intentos += 1
 
-    intento = intento + 1
+    if adivino == False:
+        print("Perdiste")
+        print("El número era:", numero_final)

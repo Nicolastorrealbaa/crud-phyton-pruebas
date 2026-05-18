@@ -58,4 +58,4 @@ elif edad > 60  and (tramo_cliente == "C" or tramo_cliente == "D"):
     print("El valor del despacho es: $", int(despacho))
     print("valor total: $", int(v_medicamento + despacho))
 else:
-    print("no tiene descuento")
+    print("error")
