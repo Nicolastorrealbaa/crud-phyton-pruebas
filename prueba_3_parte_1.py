@@ -36,3 +36,4 @@ for i in range(cantidad):
     print("Clasificacion:", clasificacion)
 print("\nResumen Final")
 print(f"¡El hospital cuenta con {especialistas} Especialistas Senior y {residentes} Residentes Junior! ¡Sistema listo para operar!")
+# Prueba 3
