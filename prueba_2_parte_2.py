@@ -76,4 +76,4 @@ while intentos <= 3:
 if intentos > 3:
     print("Perdiste.")
     print("El numero era:", numero_final)
-    # Prueba 2
+    # Prueba 2 corregida

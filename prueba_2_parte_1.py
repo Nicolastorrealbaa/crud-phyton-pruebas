@@ -46,4 +46,4 @@ valor_total = valor_medicamento + valor_despacho
 print("El valor del medicamento es: $", int(valor_medicamento))
 print("El valor del despacho es: $", int(valor_despacho))
 print("Valor total: $", int(valor_total))
-# Prueba 2
+# Prueba 2 corregida
